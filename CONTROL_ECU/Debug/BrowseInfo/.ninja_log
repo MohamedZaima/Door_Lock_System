@@ -1,5 +1,18 @@
 # ninja log v5
-1	2571	7861396700000000	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/main.xcl	3457692fc466aa09
-2577	2600	7861396708550582	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/main.pbi	5becd9d01e84dd68
-2604	2612	7861396708675794	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/CONTROL_ECU.pbd	b875c981206eb007
-2615	2795	7861396710355790	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/CONTROL_ECU.pbw	dc3867464ba16395
+1	527	7863034880000000	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/main.xcl	3b70baf8092dcadb
+0	31	7863042261905231	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/main.pbi	5becd9d01e84dd68
+1	34	7863130168853584	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/HAL/Led.pbi	be4512ca24855bcc
+16	129	7863054080000000	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/MCAL/Dio.xcl	a947033524ea8f36
+38	54	7863130169058892	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/CONTROL_ECU.pbd	83ebe1d47114ae73
+60	335	7863130171608669	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/CONTROL_ECU.pbw	dc3867464ba16395
+48	488	7863034880000000	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/MCAL/GPIO_Program.xcl	7b45bfff27acf3e1
+498	600	7863034883276937	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/MCAL/GPIO_Program.pbi	66b74c06ae5477a6
+20	170	7863054080000000	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/HAL/Led.xcl	a44f333a79ff4806
+1	149	7863054080000000	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/APP/main.xcl	387d0c3acc69d8ec
+1	47	7863120647847673	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/MCAL/Dio.pbi	40f190ad58a2ae10
+2	464	7863130961614108	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/APP/main.pbi	27c5a440e1e51282
+2	16	7863131016734841	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/CONTROL_ECU.pbd	83ebe1d47114ae73
+24	292	7863131019292645	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/CONTROL_ECU.pbw	dc3867464ba16395
+1	35	7863133608352681	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/HAL/Led.pbi	be4512ca24855bcc
+40	76	7863133608761958	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/CONTROL_ECU.pbd	83ebe1d47114ae73
+86	351	7863133611325737	C:/Users/Lenovo/Desktop/Senior-1/Fall 2025/CSE211 Introduction to Embedded Systems/Project/Door_Lock_System/CONTROL_ECU/Debug/BrowseInfo/CONTROL_ECU.pbw	dc3867464ba16395

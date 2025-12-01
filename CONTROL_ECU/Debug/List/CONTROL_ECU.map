@@ -1,0 +1,243 @@
+###############################################################################
+#
+# IAR ELF Linker V9.10.1.308/W64 for ARM                  01/Dec/2025  19:29:26
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to
+#        Embedded
+#        Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Exe\CONTROL_ECU.out
+#    Map file     =
+#        C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to
+#        Embedded
+#        Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\List\CONTROL_ECU.map
+#    Command line =
+#        -f "C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to
+#        Embedded
+#        Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Exe\CONTROL_ECU.out.rsp"
+#        ("C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to
+#        Embedded
+#        Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\MCAL\Dio.o"
+#        "C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to
+#        Embedded
+#        Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\HAL\Led.o"
+#        "C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to
+#        Embedded
+#        Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\APP\main.o"
+#        --no_out_extension -o "C:\Users\Lenovo\Desktop\Senior-1\Fall
+#        2025\CSE211 Introduction to Embedded
+#        Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Exe\CONTROL_ECU.out"
+#        --redirect _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb
+#        --map "C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction
+#        to Embedded
+#        Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\List\CONTROL_ECU.map"
+#        --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.0\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\ewarm\Exe\driverlib.a
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** MESSAGES
+***
+
+Warning[Lt009]: Inconsistent wchar_t size
+            gpio.o(driverlib.a) and 3 other objects in driverlib.a have wchar_t
+                      size 16 bits
+            Dio.o and 15 other objects, some of them in dl7M_tln.a and 11 other
+                      libraries have wchar_t size 32 bits
+
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+
+No sections matched the following patterns:
+
+  rw  in "P2"
+
+
+  Section   Kind         Address    Size  Object
+  -------   ----         -------    ----  ------
+"A0":                               0x40
+  .intvec   ro code          0x0    0x40  vector_table_M.o [7]
+                          - 0x40    0x40
+
+"P1":                              0x3d0
+  .text     ro code         0x40   0x1ec  gpio.o [5]
+  .text     ro code        0x22c    0xa8  Dio.o [3]
+  .text     ro code        0x2d4    0x44  sysctl.o [5]
+  .text     ro code        0x318    0x44  main.o [1]
+  .text     ro code        0x35c    0x2a  Led.o [2]
+  .text     ro code        0x386     0x2  vectortrap_M.o [7]
+  .text     ro code        0x388    0x22  fpinit_M.o [6]
+  .text     ro code        0x3ac    0x1e  cmain.o [7]
+  .text     ro code        0x3ca     0x4  low_level_init.o [4]
+  .text     ro code        0x3ce     0x4  exit.o [4]
+  .text     ro code        0x3d4     0xa  cexit.o [7]
+  .text     ro code        0x3e0    0x14  exit.o [8]
+  .text     ro code        0x3f4    0x1c  cstartup_M.o [7]
+                         - 0x410   0x3d0
+
+"P2":                             0x1000
+  CSTACK             0x2000'0000  0x1000  <Block>
+    CSTACK  uninit   0x2000'0000  0x1000  <Block tail>
+                   - 0x2000'1000  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+        0x410     0x3'ffff  0x3'fbf0
+  0x2000'1000  0x2000'7fff    0x7000
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  rw data
+    ------            -------  -------
+command line/config:
+    ----------------------------------
+    Total:
+
+C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\APP: [1]
+    main.o                 68
+    ----------------------------------
+    Total:                 68
+
+C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\HAL: [2]
+    Led.o                  42
+    ----------------------------------
+    Total:                 42
+
+C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\MCAL: [3]
+    Dio.o                 168
+    ----------------------------------
+    Total:                168
+
+dl7M_tln.a: [4]
+    exit.o                  4
+    low_level_init.o        4
+    ----------------------------------
+    Total:                  8
+
+driverlib.a: [5]
+    gpio.o                492
+    sysctl.o               68
+    ----------------------------------
+    Total:                560
+
+m7M_tls.a: [6]
+    fpinit_M.o             34
+    ----------------------------------
+    Total:                 34
+
+rt7M_tl.a: [7]
+    cexit.o                10
+    cmain.o                30
+    cstartup_M.o           28
+    vector_table_M.o       64
+    vectortrap_M.o          2
+    ----------------------------------
+    Total:                134
+
+shb_l.a: [8]
+    exit.o                 20
+    ----------------------------------
+    Total:                 20
+
+    Gaps                    6
+    Linker created               4'096
+--------------------------------------
+    Grand Total:        1'040    4'096
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+?main                         0x3ad         Code  Gb  cmain.o [7]
+BusFault_Handler              0x387         Code  Wk  vectortrap_M.o [7]
+CSTACK$$Base            0x2000'0000          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1000          --   Gb  - Linker created -
+DebugMon_Handler              0x387         Code  Wk  vectortrap_M.o [7]
+Delay_MS                      0x319   0x24  Code  Gb  main.o [1]
+Dio_Init                      0x22d   0x56  Code  Gb  Dio.o [3]
+Dio_WriteChannel              0x283   0x4a  Code  Gb  Dio.o [3]
+GPIODirModeSet                 0x41   0x28  Code  Gb  gpio.o [5]
+GPIOPadConfigSet               0x69  0x174  Code  Gb  gpio.o [5]
+GPIOPinTypeGPIOInput          0x1e7   0x14  Code  Gb  gpio.o [5]
+GPIOPinTypeGPIOOutput         0x1fb    0xa  Code  Gb  gpio.o [5]
+GPIOPinWrite                  0x1dd    0x6  Code  Gb  gpio.o [5]
+HardFault_Handler             0x387         Code  Wk  vectortrap_M.o [7]
+Led_Init                      0x36b    0xe  Code  Gb  Led.o [2]
+Led_TurnOff                   0x379    0xe  Code  Gb  Led.o [2]
+Led_TurnOn                    0x35d    0xe  Code  Gb  Led.o [2]
+MemManage_Handler             0x387         Code  Wk  vectortrap_M.o [7]
+NMI_Handler                   0x387         Code  Wk  vectortrap_M.o [7]
+PendSV_Handler                0x387         Code  Wk  vectortrap_M.o [7]
+Region$$Table$$Base             0x0          --   Gb  - Linker created -
+Region$$Table$$Limit            0x0          --   Gb  - Linker created -
+SVC_Handler                   0x387         Code  Wk  vectortrap_M.o [7]
+SysCtlPeripheralEnable        0x2f5    0x8  Code  Gb  sysctl.o [5]
+SysCtlPeripheralReady         0x2d5    0x8  Code  Gb  sysctl.o [5]
+SysTick_Handler               0x387         Code  Wk  vectortrap_M.o [7]
+UsageFault_Handler            0x387         Code  Wk  vectortrap_M.o [7]
+__cmain                       0x3ad         Code  Gb  cmain.o [7]
+__exit                        0x3e1   0x14  Code  Gb  exit.o [8]
+__iar_init_vfp                0x389         Code  Gb  fpinit_M.o [6]
+__iar_program_start           0x3f5         Code  Gb  cstartup_M.o [7]
+__low_level_init              0x3cb    0x4  Code  Gb  low_level_init.o [4]
+__vector_table                  0x0         Data  Gb  vector_table_M.o [7]
+_call_main                    0x3b9         Code  Gb  cmain.o [7]
+_exit                         0x3d5         Code  Gb  cexit.o [7]
+exit                          0x3cf    0x4  Code  Gb  exit.o [4]
+main                          0x33d   0x20  Code  Gb  main.o [1]
+
+
+[1] = C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\APP
+[2] = C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\HAL
+[3] = C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\CONTROL_ECU\Debug\Obj\MCAL
+[4] = dl7M_tln.a
+[5] = driverlib.a
+[6] = m7M_tls.a
+[7] = rt7M_tl.a
+[8] = shb_l.a
+
+  1'040 bytes of readonly  code memory
+  4'096 bytes of readwrite data memory
+
+Errors: none
+Warnings: 1
