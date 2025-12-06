@@ -2856,6 +2856,12 @@
     <group>
         <name>HAL</name>
         <file>
+            <name>$PROJ_DIR$\HAL\Button.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Button.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\HAL\Led.c</name>
         </file>
         <file>

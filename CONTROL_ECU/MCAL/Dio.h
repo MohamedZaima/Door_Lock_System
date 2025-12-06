@@ -28,5 +28,6 @@
 /* Function Prototypes */
 void Dio_Init(u8 PortId, u8 PinId, u8 Direction);
 void Dio_WriteChannel(u8 PortId, u8 PinId, u8 Level);
-
+u8   Dio_ReadChannel(u8 PortId, u8 PinId);        // <--- NEW: Read Function
+void Dio_FlipChannel(u8 PortId, u8 PinId);        // <--- OPTIONAL: Toggle
 #endif

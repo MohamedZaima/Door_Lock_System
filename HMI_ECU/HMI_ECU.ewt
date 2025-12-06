@@ -2843,29 +2843,89 @@
     </configuration>
     <group>
         <name>APP</name>
+        <file>
+            <name>$PROJ_DIR$\APP\main.c</name>
+        </file>
     </group>
     <group>
         <name>CONFIG</name>
         <file>
-            <name>$PROJ_DIR$\CONFIG\test.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\CONFIG\test.h</name>
+            <name>$PROJ_DIR$\CONFIG\Led_Cfg.h</name>
         </file>
     </group>
     <group>
         <name>HAL</name>
+        <file>
+            <name>$PROJ_DIR$\HAL\Button.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Button.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\KEYPAD.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\KEYPAD.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\LCD.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\LCD.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Led.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Led.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\POT.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\POT.h</name>
+        </file>
     </group>
     <group>
         <name>MCAL</name>
+        <file>
+            <name>$PROJ_DIR$\MCAL\ADC.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\ADC.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\Dio.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\Dio.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\I2C.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\I2C.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\SYSTICK.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\SYSTICK.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\UART.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\UART.h</name>
+        </file>
     </group>
     <group>
         <name>SERVICES</name>
     </group>
     <group>
         <name>UTILS</name>
+        <file>
+            <name>$PROJ_DIR$\UTILS\std_types.h</name>
+        </file>
     </group>
-    <file>
-        <name>$PROJ_DIR$\main.c</name>
-    </file>
 </project>

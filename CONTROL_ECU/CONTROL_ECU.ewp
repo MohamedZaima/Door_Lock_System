@@ -99,7 +99,7 @@
                 <option>
                     <name>GBECoreSlave</name>
                     <version>29</version>
-                    <state>38</state>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>OGUseCmsis</name>
@@ -587,7 +587,7 @@
                 </option>
                 <option>
                     <name>AOutputFile</name>
-                    <state></state>
+                    <state>$FILE_BNAME$.o</state>
                 </option>
                 <option>
                     <name>ALimitErrorsCheck</name>
@@ -641,7 +641,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state></state>
+                    <state>CONTROL_ECU.srec</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -659,7 +659,7 @@
             <data>
                 <extensions></extensions>
                 <cmdline></cmdline>
-                <hasPrio>0</hasPrio>
+                <hasPrio>1</hasPrio>
                 <buildSequence>inputOutputBased</buildSequence>
             </data>
         </settings>
@@ -2107,6 +2107,12 @@
     </group>
     <group>
         <name>HAL</name>
+        <file>
+            <name>$PROJ_DIR$\HAL\Button.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Button.h</name>
+        </file>
         <file>
             <name>$PROJ_DIR$\HAL\Led.c</name>
         </file>

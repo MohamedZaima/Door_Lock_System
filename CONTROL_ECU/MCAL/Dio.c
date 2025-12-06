@@ -1,5 +1,5 @@
 #include "Dio.h"
-
+#include <stdio.h>  // For printf
 #include <stdint.h>   // Defines uint32_t, uint8_t
 #include <stdbool.h>  // Defines bool
 // TIVAWARE INCLUDES (Hidden from everyone else)
@@ -8,31 +8,74 @@
 #include "std_types.h"
 /* Add this to your Includes if not already there */
 #include "driverlib/sysctl.h" 
+#include "inc/hw_types.h"
+#include "inc/hw_gpio.h"
 
 void Dio_Init(u8 PortId, u8 PinId, u8 Direction)
 {
-    u32 Tiva_Port_Base;
-    u32 Tiva_Peripheral_ID;
-    u8  Tiva_Pin_Mask = (1 << PinId);
-
-    /* 1. Map Generic PORT to TivaWare Peripheral ID & Base Address */
-    switch(PortId)
+  /* ============================================================ */
+    /* SAFETY CHECK: FORBIDDEN PINS (JTAG & DEBUG UART)             */
+    /* ============================================================ */
+    // TEMPORARY TEST: Treat PORT_F, PIN_1 (Red LED) as "Dangerous"
+    /*if(PortId == PORT_F && PinId == PIN_1)
     {
-        case PORT_F: 
-            Tiva_Peripheral_ID = SYSCTL_PERIPH_GPIOF; // Clock ID
-            Tiva_Port_Base     = GPIO_PORTF_BASE;     // Address
-            break;
-        // Add other cases (PORT_A, PORT_B...) here
-        default: return; 
+        printf("\n[TEST] SUCCESS! Caught forbidden access to PF1.\n");
+        printf("[TEST] System Halted. The LED should NOT turn on.\n");
+        
+        while(1); // Trap the CPU here
+    }*/
+    // 1. Check for JTAG Pins (PC0 - PC3) -> CRITICAL: Bricks Debugger
+    if(PortId == PORT_C && (PinId <= PIN_3))
+    {
+        printf("\n[ERROR] CRITICAL: You tried to use PC%d!\n", PinId);
+        printf("[ERROR] PC0-PC3 are JTAG pins. Usage Forbidden.\n");
+        printf("[ERROR] System Halted to protect debugger access.\n");
+        
+        // HALT SYSTEM (Infinite Loop) - Code stops here.
+        while(1);
     }
 
-    /* 2. ENABLE CLOCK (The most important step!) */
-    SysCtlPeripheralEnable(Tiva_Peripheral_ID);
+    // 2. Check for UART0 Pins (PA0 - PA1) -> WARNING: Kills Console
+    // (Optional: You might want to allow this later, but for now, block it)
+    if(PortId == PORT_A && (PinId <= PIN_1))
+    {
+        printf("\n[ERROR] WARNING: You tried to use PA%d!\n", PinId);
+        printf("[ERROR] PA0-PA1 are UART0 (Virtual Serial Port).\n");
+        printf("[ERROR] Overwriting them kills printf/debugging capability.\n");
+        printf("[ERROR] System Halted.\n");
+        
+        while(1);
+    }
+    
+    u32 Tiva_Port_Base = 0;
+    u32 Tiva_Peripheral_ID = 0;
+    u8  Tiva_Pin_Mask = (1 << PinId);
 
-    /* 3. Wait for the clock to stabilize */
+    /* 1. Map Generic PORT to TivaWare ID & Base */
+    switch(PortId)
+    {
+        case PORT_A: Tiva_Peripheral_ID = SYSCTL_PERIPH_GPIOA; Tiva_Port_Base = GPIO_PORTA_BASE; break;
+        case PORT_B: Tiva_Peripheral_ID = SYSCTL_PERIPH_GPIOB; Tiva_Port_Base = GPIO_PORTB_BASE; break;
+        case PORT_C: Tiva_Peripheral_ID = SYSCTL_PERIPH_GPIOC; Tiva_Port_Base = GPIO_PORTC_BASE; break;
+        case PORT_D: Tiva_Peripheral_ID = SYSCTL_PERIPH_GPIOD; Tiva_Port_Base = GPIO_PORTD_BASE; break;
+        case PORT_E: Tiva_Peripheral_ID = SYSCTL_PERIPH_GPIOE; Tiva_Port_Base = GPIO_PORTE_BASE; break;
+        case PORT_F: Tiva_Peripheral_ID = SYSCTL_PERIPH_GPIOF; Tiva_Port_Base = GPIO_PORTF_BASE; break;
+        default: return;
+    }
+
+    /* 2. ENABLE CLOCK & WAIT */
+    SysCtlPeripheralEnable(Tiva_Peripheral_ID);
     while(!SysCtlPeripheralReady(Tiva_Peripheral_ID));
 
-    /* 4. Set Pin Direction */
+    /* 3. UNLOCK SPECIAL PINS (PF0 & PD7) */
+    if( (PortId == PORT_F && PinId == PIN_0) || (PortId == PORT_D && PinId == PIN_7) )
+    {
+        HWREG(Tiva_Port_Base + GPIO_O_LOCK) = GPIO_LOCK_KEY; // Unlock
+        HWREG(Tiva_Port_Base + GPIO_O_CR)  |= Tiva_Pin_Mask; // Commit
+        HWREG(Tiva_Port_Base + GPIO_O_LOCK) = 0;             // Re-Lock
+    }
+
+    /* 4. SET DIRECTION & PULL-UPS */
     if(Direction == OUTPUT)
     {
         GPIOPinTypeGPIOOutput(Tiva_Port_Base, Tiva_Pin_Mask);
@@ -40,10 +83,13 @@ void Dio_Init(u8 PortId, u8 PinId, u8 Direction)
     else
     {
         GPIOPinTypeGPIOInput(Tiva_Port_Base, Tiva_Pin_Mask);
-        // Optional: Enable Pull-ups if needed for inputs
-        // GPIOPadConfigSet(Tiva_Port_Base, Tiva_Pin_Mask, GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPU);
+        // Defaulting to PULL-UP for buttons
+        GPIOPadConfigSet(Tiva_Port_Base, Tiva_Pin_Mask, GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPU);
     }
 }
+
+
+
 void Dio_WriteChannel(u8 PortId, u8 PinId, u8 Level)
 {
     u32 Tiva_Port_Base = 0; // Initialize to 0 for safety
@@ -61,5 +107,32 @@ void Dio_WriteChannel(u8 PortId, u8 PinId, u8 Level)
         GPIOPinWrite(Tiva_Port_Base, Tiva_Pin_Mask, Tiva_Pin_Mask);
     } else {
         GPIOPinWrite(Tiva_Port_Base, Tiva_Pin_Mask, 0);
+    }
+}
+
+u8 Dio_ReadChannel(u8 PortId, u8 PinId)
+{
+    u32 Tiva_Port_Base = 0;
+    u8  Tiva_Pin_Mask = (1 << PinId);
+    int32_t Raw_Value;
+
+    switch(PortId) {
+        case PORT_A: Tiva_Port_Base = GPIO_PORTA_BASE; break;
+        case PORT_B: Tiva_Port_Base = GPIO_PORTB_BASE; break;
+        case PORT_C: Tiva_Port_Base = GPIO_PORTC_BASE; break;
+        case PORT_D: Tiva_Port_Base = GPIO_PORTD_BASE; break;
+        case PORT_E: Tiva_Port_Base = GPIO_PORTE_BASE; break;
+        case PORT_F: Tiva_Port_Base = GPIO_PORTF_BASE; break;
+        default: return 0;
+    }
+
+    // TivaWare Read returns 0 or the BitMask (e.g., 0x10 for Pin 4)
+    Raw_Value = GPIOPinRead(Tiva_Port_Base, Tiva_Pin_Mask);
+
+    // Normalize to 1 or 0
+    if(Raw_Value == 0) {
+        return LOW;
+    } else {
+        return HIGH;
     }
 }

@@ -48,7 +48,7 @@
                 </option>
                 <option>
                     <name>OGCoreOrChip</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>GRuntimeLibSelect</name>
@@ -74,7 +74,7 @@
                 </option>
                 <option>
                     <name>OGChipSelectEditMenu</name>
-                    <state>Default	None</state>
+                    <state>TM4C123GH6PM	TexasInstruments TM4C123GH6PM</state>
                 </option>
                 <option>
                     <name>GenLowLevelInterface</name>
@@ -116,21 +116,21 @@
                 <option>
                     <name>CoreVariant</name>
                     <version>29</version>
-                    <state>38</state>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>GFPUDeviceSlave</name>
-                    <state>Default	None</state>
+                    <state>TM4C123GH6PM	TexasInstruments TM4C123GH6PM</state>
                 </option>
                 <option>
                     <name>FPU2</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>4</state>
                 </option>
                 <option>
                     <name>NrRegs</name>
                     <version>0</version>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>NEON</name>
@@ -139,7 +139,7 @@
                 <option>
                     <name>GFPUCoreSlave2</name>
                     <version>29</version>
-                    <state>38</state>
+                    <state>39</state>
                 </option>
                 <option>
                     <name>OGCMSISPackSelectDevice</name>
@@ -180,7 +180,7 @@
                 </option>
                 <option>
                     <name>DSPExtension</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>TrustZone</name>
@@ -214,7 +214,7 @@
                 </option>
                 <option>
                     <name>CCDefines</name>
-                    <state></state>
+                    <state>PART_TM4C123GH6PM</state>
                 </option>
                 <option>
                     <name>CCPreprocFile</name>
@@ -336,6 +336,15 @@
                 <option>
                     <name>CCIncludePath2</name>
                     <state>C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\SHARED</state>
+                    <state>C:\ti\TivaWare_C_Series-2.2.0.295\inc</state>
+                    <state>C:\ti\TivaWare_C_Series-2.2.0.295\driverlib</state>
+                    <state>C:\ti\TivaWare_C_Series-2.2.0.295</state>
+                    <state>C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\HMI_ECU\APP</state>
+                    <state>C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\HMI_ECU\CONFIG</state>
+                    <state>C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\HMI_ECU\HAL</state>
+                    <state>C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\HMI_ECU\MCAL</state>
+                    <state>C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\HMI_ECU\SERVICES</state>
+                    <state>C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\HMI_ECU\UTILS</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -351,7 +360,7 @@
                 </option>
                 <option>
                     <name>CCOptLevel</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCOptStrategy</name>
@@ -360,7 +369,7 @@
                 </option>
                 <option>
                     <name>CCOptLevelSlave</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCPosIndRopi</name>
@@ -744,7 +753,7 @@
                 </option>
                 <option>
                     <name>IlinkIcfFile</name>
-                    <state></state>
+                    <state>$TOOLKIT_DIR$\config\linker\TexasInstruments\TM4C123GH6.icf</state>
                 </option>
                 <option>
                     <name>IlinkIcfFileSlave</name>
@@ -792,7 +801,7 @@
                 </option>
                 <option>
                     <name>IlinkAdditionalLibs</name>
-                    <state></state>
+                    <state>C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\ewarm\Exe\driverlib.a</state>
                 </option>
                 <option>
                     <name>IlinkOverrideProgramEntryLabel</name>
@@ -804,7 +813,7 @@
                 </option>
                 <option>
                     <name>IlinkProgramEntryLabel</name>
-                    <state></state>
+                    <state>__iar_program_start</state>
                 </option>
                 <option>
                     <name>DoFill</name>
@@ -977,7 +986,7 @@
                 </option>
                 <option>
                     <name>IlinkTrustzoneImportLibraryOut</name>
-                    <state>###Unitialized###</state>
+                    <state>HMI_ECU_import_lib.o</state>
                 </option>
                 <option>
                     <name>OILinkExtraOption</name>
@@ -2087,29 +2096,89 @@
     </configuration>
     <group>
         <name>APP</name>
+        <file>
+            <name>$PROJ_DIR$\APP\main.c</name>
+        </file>
     </group>
     <group>
         <name>CONFIG</name>
         <file>
-            <name>$PROJ_DIR$\CONFIG\test.c</name>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\CONFIG\test.h</name>
+            <name>$PROJ_DIR$\CONFIG\Led_Cfg.h</name>
         </file>
     </group>
     <group>
         <name>HAL</name>
+        <file>
+            <name>$PROJ_DIR$\HAL\Button.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Button.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\KEYPAD.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\KEYPAD.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\LCD.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\LCD.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Led.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Led.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\POT.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\POT.h</name>
+        </file>
     </group>
     <group>
         <name>MCAL</name>
+        <file>
+            <name>$PROJ_DIR$\MCAL\ADC.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\ADC.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\Dio.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\Dio.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\I2C.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\I2C.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\SYSTICK.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\SYSTICK.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\UART.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\UART.h</name>
+        </file>
     </group>
     <group>
         <name>SERVICES</name>
     </group>
     <group>
         <name>UTILS</name>
+        <file>
+            <name>$PROJ_DIR$\UTILS\std_types.h</name>
+        </file>
     </group>
-    <file>
-        <name>$PROJ_DIR$\main.c</name>
-    </file>
 </project>

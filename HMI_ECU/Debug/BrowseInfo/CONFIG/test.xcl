@@ -11,11 +11,15 @@ C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Syste
 -I
 C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\HMI_ECU\CONFIG
 -I
+C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\SHARED\
+-I
 C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\inc\c\aarch32
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\inc
 -I
 C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\inc\c
+-I
+C:\Users\Lenovo\Desktop\Senior-1\Fall 2025\CSE211 Introduction to Embedded Systems\Project\Door_Lock_System\SHARED
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
