@@ -95,8 +95,12 @@ void Dio_WriteChannel(u8 PortId, u8 PinId, u8 Level)
 
     /* 1. Translate Generic PORT to Address */
     switch(PortId) {
+        case PORT_A: Tiva_Port_Base = GPIO_PORTA_BASE; break; // Added
+        case PORT_B: Tiva_Port_Base = GPIO_PORTB_BASE; break; // Added
+        case PORT_C: Tiva_Port_Base = GPIO_PORTC_BASE; break; // Added (Safe for PC4-PC7)
+        case PORT_D: Tiva_Port_Base = GPIO_PORTD_BASE; break; // Added
+        case PORT_E: Tiva_Port_Base = GPIO_PORTE_BASE; break; // Added
         case PORT_F: Tiva_Port_Base = GPIO_PORTF_BASE; break;
-        // Add other ports here later
         default: return; // SAFETY EXIT: If port is wrong, do nothing!
     }
 

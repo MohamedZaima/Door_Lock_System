@@ -1,51 +1,48 @@
-
 /*****************************************************************************
  * File: main.c
- * Description: Example main for testing the 4x4 keypad driver
- * Author: Ahmedhh
- * Date: November 27, 2025
+ * Description: Keypad (PA/PC) + LCD (I2C PB2/PB3)
  *****************************************************************************/
 
-
-
 #include "std_types.h"
-#include <stdint.h>   // Defines uint32_t, uint8_t
-#include <stdbool.h>  // Defines bool
-#include <stdio.h>    // <--- REQUIRED for getchar()
-#include "LCD.h"
-#include "Led.h"
-#include "Button.h"
+#include <stdint.h>   
+#include <stdio.h>    
+#include "../HAL/LCD.h"      // Expects I2C implementation
 #include "SYSTICK.h"
 #include "keypad.h"
 
-
-/*
- * Main function
- * Continuously reads keypad and outputs pressed key to console.
- * Replace printf with LCD/UART output as needed for your hardware.
- */
 int main()
 {
-    SysTick_Init();
-    //Lcd_Init();
-    Keypad_Init(); // Initialize keypad pins
+    /* 1. Initialization */
+    SysTick_Init();      
     
-/* 3. Startup Screen */
-   // Lcd_Clear();
-   // Lcd_DisplayString("Keypad Test...");
-   // SysTick_Wait(1000); // Wait 1s to read it
-   // Lcd_Clear();
+    /* Initialize I2C LCD (Uses PB2/PB3) */
+    Lcd_Init();          
+    
+    /* Initialize Keypad (Uses PA2-PA5 and PC4-PC7) */
+    Keypad_Init();       
+    
+    /* 2. Startup Screen */
+    Lcd_Clear();
+    Lcd_DisplayString("System Ready");
+    SysTick_Wait(1000);
+    Lcd_Clear();
+    
     while (1)
     {
-        const char *key =  Keypad_GetKey(); // Get pressed key (string)
-        if (key)
+        /* 3. Read Keypad */
+        const char *key = Keypad_GetKey(); 
+        
+        if (key != 0) 
         {
-          /* Debug Output to Terminal (View -> Terminal I/O) */
-            printf("Key Pressed: %s\n", key);
+            // printf("Key: %s\n", key); // Debug to PC
 
-            /* Output to LCD */
-          //  Lcd_Clear();
-           // Lcd_DisplayString((char*)key);
+            /* Output to I2C LCD */
+            Lcd_Clear();                
+            Lcd_DisplayString("Key Pressed:"); 
+            Lcd_GoToRowColumn(1, 0); // Move to 2nd line
+            Lcd_DisplayString((char*)key); 
+            
+            SysTick_Wait(250); // Debounce
         }
     }
 }
