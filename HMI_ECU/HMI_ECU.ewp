@@ -2148,7 +2148,7 @@
             <name>$PROJ_DIR$\MCAL\ADC.c</name>
         </file>
         <file>
-            <name>$PROJ_DIR$\MCAL\adc.h</name>
+            <name>$PROJ_DIR$\MCAL\ADC.h</name>
         </file>
         <file>
             <name>$PROJ_DIR$\MCAL\Dio.c</name>

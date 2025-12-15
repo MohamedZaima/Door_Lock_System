@@ -8,6 +8,9 @@
 
 #include "adc.h"
 #include "tm4c123gh6pm.h"
+#include <stdio.h>  // For printf
+#include <stdint.h>   // Defines uint32_t, uint8_t
+#include <stdbool.h>  // Defines bool
 
 /******************************************************************************
  *                         Function Definitions                                *
@@ -67,16 +70,4 @@ uint16_t ADC_Read(void)
     for(delay = 0; delay < 10; delay++);
     
     return result;
-}
-
-/*
- * Description: Converts ADC value to millivolts (assuming 3.3V reference)
- * Parameters:
- *   - adcValue: Raw ADC reading (0-4095)
- * Returns: Voltage in millivolts (0-3300)
- */
-uint32_t ADC_ToMillivolts(uint16_t adcValue)
-{
-    /* Convert to millivolts: (adcValue * 3300) / 4095 */
-    return (adcValue * 3300UL) / 4095UL;
 }

@@ -2114,6 +2114,12 @@
             <name>$PROJ_DIR$\HAL\Button.h</name>
         </file>
         <file>
+            <name>$PROJ_DIR$\HAL\Door_Lock.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\HAL\Door_Lock.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\HAL\Led.c</name>
         </file>
         <file>

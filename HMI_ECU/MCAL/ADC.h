@@ -9,8 +9,9 @@
 #ifndef ADC_H_
 #define ADC_H_
 
-#include <stdint.h>
-
+#include <stdio.h>  // For printf
+#include <stdint.h>   // Defines uint32_t, uint8_t
+#include <stdbool.h>  // Defines bool
 /******************************************************************************
  *                              Definitions                                    *
  ******************************************************************************/
@@ -54,32 +55,7 @@
  */
 #define ADC_MAX_VALUE       4095
 
-/******************************************************************************
- *                         Function Prototypes                                 *
- ******************************************************************************/
-
-/*
- * Description: Initializes ADC0 Sequencer 3 for single-ended sampling
- * Parameters:
- *   - channel: ADC input channel (0-11)
- * Returns: None
- * Note: PE3 corresponds to AIN0 (channel 0)
- */
 void ADC_Init(uint8_t channel);
-
-/*
- * Description: Reads a single sample from the ADC
- * Parameters: None
- * Returns: 12-bit ADC conversion result (0-4095)
- */
 uint16_t ADC_Read(void);
-
-/*
- * Description: Converts ADC value to millivolts (assuming 3.3V reference)
- * Parameters:
- *   - adcValue: Raw ADC reading (0-4095)
- * Returns: Voltage in millivolts (0-3300)
- */
-uint32_t ADC_ToMillivolts(uint16_t adcValue);
 
 #endif /* ADC_H_ */

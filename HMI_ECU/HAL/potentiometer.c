@@ -5,7 +5,10 @@
  * Author: Ahmedhh
  * Date: December 8, 2025
  ******************************************************************************/
-
+#include "../UTILS/std_types.h"
+#include <stdio.h>  // For printf
+#include <stdint.h>   // Defines uint32_t, uint8_t
+#include <stdbool.h>  // Defines bool
 #include "potentiometer.h"
 #include "adc.h"
 
@@ -24,46 +27,7 @@ void POT_Init(void)
     ADC_Init(POT_ADC_CHANNEL);
 }
 
-/*
- * Description: Reads the raw ADC value from the potentiometer
- * Parameters: None
- * Returns: 12-bit ADC value (0-4095)
- */
-uint16_t POT_ReadRaw(void)
-{
-    return ADC_Read();
-}
 
-/*
- * Description: Reads the potentiometer voltage in millivolts
- * Parameters: None
- * Returns: Voltage in millivolts (0-3300)
- */
-uint32_t POT_ReadMillivolts(void)
-{
-    uint16_t rawValue = ADC_Read();
-    return ADC_ToMillivolts(rawValue);
-}
-
-/*
- * Description: Reads the potentiometer position as a percentage
- * Parameters: None
- * Returns: Position percentage (0-100)
- */
-uint8_t POT_ReadPercentage(void)
-{
-    uint16_t rawValue = ADC_Read();
-    /* Convert to percentage: (rawValue * 100) / 4095 */
-    return (uint8_t)((rawValue * 100UL) / 4095UL);
-}
-
-/*
- * Description: Maps the potentiometer reading to a custom range
- * Parameters:
- *   - min: Minimum value of output range
- *   - max: Maximum value of output range
- * Returns: Mapped value within the specified range
- */
 uint32_t POT_ReadMapped(uint32_t min, uint32_t max)
 {
     uint16_t rawValue = ADC_Read();
