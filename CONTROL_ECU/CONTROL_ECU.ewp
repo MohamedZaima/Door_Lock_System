@@ -2098,6 +2098,9 @@
         <file>
             <name>$PROJ_DIR$\main.c</name>
         </file>
+        <file>
+            <name>$PROJ_DIR$\APP\startup_ewarm.c</name>
+        </file>
     </group>
     <group>
         <name>CONFIG</name>
@@ -2145,6 +2148,12 @@
         </file>
         <file>
             <name>$PROJ_DIR$\MCAL\EEPROM_Driver.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\GPTM.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\MCAL\GPTM.h</name>
         </file>
         <file>
             <name>$PROJ_DIR$\MCAL\SYSTICK.c</name>
