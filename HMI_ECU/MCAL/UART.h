@@ -1,7 +1,7 @@
 /******************************************************************************
  * File: uart.h
  * Module: UART (Universal Asynchronous Receiver/Transmitter)
- * Description: Header file for TM4C123GH6PM UART0 Driver (Register Level)
+ * Description: Header file for TM4C123GH6PM UART0 Driver (TivaWare)
  * Author: Ahmedhh
  * Date: December 10, 2025
  * 
@@ -17,6 +17,7 @@
 #define UART_H_
 
 #include <stdint.h>
+#include <stdbool.h>
 
 /******************************************************************************
  *                          Function Prototypes                                *
@@ -24,7 +25,7 @@
 
 /*
  * UART0_Init
- * Initializes UART0 with 115200 baud rate, 8N1 configuration.
+ * Initializes UART0 with 115200 baud rate, 8N1 configuration using TivaWare.
  * Uses PA0 (RX) and PA1 (TX).
  * System clock is assumed to be 16 MHz.
  */
